@@ -9,7 +9,9 @@ export PATH=$PATH:/usr/local/bin
 
 for dir in $(echo "$@" | xargs -n1 dirname | sort -u | uniq); do
   pushd "$dir" >/dev/null
+  echo "##################################################"
   echo "Current directory is: $dir"
+  echo "##################################################"
   terraform init -backend=false
   terraform validate
   popd >/dev/null
