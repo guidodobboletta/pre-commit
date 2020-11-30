@@ -9,7 +9,7 @@ export PATH=$PATH:/usr/local/bin
 
 for dir in $(echo "$@" | xargs -n1 dirname | sort -u | uniq); do
   pushd "$dir" >/dev/null
-  rm -rf ".terraform" >/dev/null
+  # rm -rf ".terraform" >/dev/null
   echo "Current directory being checked: $dir"
   export AWS_DEFAULT_REGION=us-west-2
   terraform init -backend=false
